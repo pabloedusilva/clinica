@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhysioHome & Care - Fisioterapia Domiciliar</title>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Tela Inicial/Home -->
+    <div id="homeScreen" class="screen active">
+        <div class="home-container">
+            <div class="home-content">
+                <div class="logo-section">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <h1 class="brand-name">PhysioHome & Care</h1>
+                    <p class="brand-tagline">Fisioterapia profissional no conforto da sua casa</p>
+                </div>
+                
+                <div class="hero-section">
+                    <h2 class="hero-title">Cuidado personalizado para sua recuperação</h2>
+                    <p class="hero-description">
+                        Conectamos você aos melhores fisioterapeutas, oferecendo atendimento 
+                        domiciliar de qualidade com acompanhamento completo da sua evolução.
+                    </p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-home"></i>
+                        <h3>Atendimento Domiciliar</h3>
+                        <p>Profissionais qualificados na sua casa</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>Agendamento Fácil</h3>
+                        <p>Marque consultas com praticidade</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-dumbbell"></i>
+                        <h3>Exercícios Personalizados</h3>
+                        <p>Plano de tratamento individualizado</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Acompanhamento</h3>
+                        <p>Monitore sua evolução em tempo real</p>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="showLoginScreen()">
+                        <i class="fas fa-sign-in-alt"></i> Entrar
+                    </button>
+                    <button class="btn btn-secondary" onclick="showRegisterScreen()">
+                        <i class="fas fa-user-plus"></i> Criar Conta
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tela de Login -->
+    <div id="loginScreen" class="screen">
+        <div class="auth-container">
+            <div class="auth-box">
+                <div class="auth-header">
+                    <i class="fas fa-heartbeat"></i>
+                    <h2>Entrar</h2>
+                    <p>Acesse sua conta PhysioHome & Care</p>
+                </div>
+                
+                <form id="loginForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="loginEmail">
+                            <i class="fas fa-envelope"></i> E-mail
+                        </label>
+                        <input type="email" id="loginEmail" required placeholder="seu@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loginPassword">
+                            <i class="fas fa-lock"></i> Senha
+                        </label>
+                        <input type="password" id="loginPassword" required placeholder="••••••••">
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe">Lembrar de mim</label>
+                    </div>
+
+                    <div id="loginError" class="error-message"></div>
+
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <i class="fas fa-sign-in-alt"></i> Entrar
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>Não tem uma conta? 
+                        <a href="#" onclick="showRegisterScreen(); return false;">Criar conta</a>
+                    </p>
+                    <p>
+                        <a href="#" onclick="showHomeScreen(); return false;">
+                            <i class="fas fa-arrow-left"></i> Voltar
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tela de Cadastro -->
+    <div id="registerScreen" class="screen">
+        <div class="auth-container">
+            <div class="auth-box">
+                <div class="auth-header">
+                    <i class="fas fa-user-plus"></i>
+                    <h2>Criar Conta</h2>
+                    <p>Cadastre-se gratuitamente</p>
+                </div>
+                
+                <form id="registerForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="registerName">
+                            <i class="fas fa-user"></i> Nome Completo
+                        </label>
+                        <input type="text" id="registerName" required placeholder="Seu nome completo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerEmail">
+                            <i class="fas fa-envelope"></i> E-mail
+                        </label>
+                        <input type="email" id="registerEmail" required placeholder="seu@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerPassword">
+                            <i class="fas fa-lock"></i> Senha
+                        </label>
+                        <input type="password" id="registerPassword" required placeholder="Mínimo 6 caracteres">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerType">
+                            <i class="fas fa-user-tag"></i> Tipo de Usuário
+                        </label>
+                        <select id="registerType" required>
+                            <option value="">Selecione...</option>
+                            <option value="paciente">Paciente</option>
+                            <option value="fisioterapeuta">Fisioterapeuta</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="acceptTerms" required>
+                        <label for="acceptTerms">
+                            Aceito os <a href="#" onclick="return false;">termos de uso</a> e 
+                            <a href="#" onclick="return false;">política de privacidade</a>
+                        </label>
+                    </div>
+
+                    <div id="registerError" class="error-message"></div>
+
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <i class="fas fa-user-plus"></i> Criar Conta
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>Já tem uma conta? 
+                        <a href="#" onclick="showLoginScreen(); return false;">Entrar</a>
+                    </p>
+                    <p>
+                        <a href="#" onclick="showHomeScreen(); return false;">
+                            <i class="fas fa-arrow-left"></i> Voltar
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard (será carregado dinamicamente) -->
+    <div id="dashboardScreen" class="screen">
+        <!-- Conteúdo será carregado via JavaScript -->
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
